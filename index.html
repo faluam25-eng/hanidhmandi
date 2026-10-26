@@ -1,96 +1,179 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>حنيذ ومندي الجنوب - طلب</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حنيذ ومندي الجنوب الأصلي - مطعم بارق الجنوب</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700;900&display=swap');
-*{box-sizing:border-box} body{margin:0;font-family:'Tajawal',Tahoma;background:#fdf3d7;color:#2b1e14}
-.top{background:#c8962e;color:#fff;text-align:center;padding:6px;font-size:10px;font-weight:900}
-.hero{background:#fff;text-align:center;padding:14px;border-bottom:3px solid #c8962e}
-.num{font-size:32px;font-weight:900;color:#8f6b1e}
-.wrap{max-width:860px;margin:auto;padding:10px 10px 90px}
-.sec{background:#fffef6;border-radius:14px;border:1.5px solid #f0dca0;margin:10px 0;overflow:hidden}
-.head{background:#2b1e14;color:#f7d88a;padding:10px 14px;font-weight:900;font-size:13px}
-.row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px dashed #f5e3a8;font-size:12.5px}
-.price{color:#0f8a3d;background:#e8f5e9;padding:3px 9px;border-radius:8px;font-weight:900}
-.add{background:#2b1e14;color:#f7d88a;border:0;padding:5px 10px;border-radius:7px;font-weight:900;cursor:pointer;font-size:11px}
-.cart-btn{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#2b1e14;color:#f7d88a;padding:12px 20px;border-radius:30px;font-weight:900;box-shadow:0 6px 18px rgba(0,0,0,.35);z-index:30;cursor:pointer;display:none;align-items:center;gap:10px}
+*{box-sizing:border-box}body{margin:0;font-family:'Tajawal',sans-serif;background:#fdf3d7;color:#1e170f}
+.top{background:#1e170f;color:#f7d88a;text-align:center;padding:7px 10px;font-size:10px;font-weight:800}
+.hero{background:#fff;text-align:center;padding:16px 14px;border-bottom:4px solid #c1272d}
+.logo{width:96px;height:96px;border-radius:50%;border:3px solid #c1272d;object-fit:cover;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.num{font-size:38px;font-weight:900;color:#c1272d;margin:6px 0}
+.wrap{max-width:880px;margin:auto;padding:10px 12px 140px}
+.sec{background:#fffef6;border:1.5px solid #f0dca0;border-radius:18px;margin:14px 0;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+.sec-head{background:linear-gradient(90deg,#1e170f 0%, #2b1e14 100%);color:#f7d88a;padding:11px 14px;display:flex;justify-content:space-between;align-items:center}
+.sec-head b{font-size:13px}
+.sec-head img{width:28px;height:28px;border-radius:50%;border:1.5px solid #f7d88a;background:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px dashed #f5e3a8;font-size:12.5px;gap:8px}
+.row:last-child{border:0}
+.kcal{font-size:9px;color:#a08555;background:#fff3c9;padding:2px 5px;border-radius:5px;margin-right:4px}
+.price{background:#e8f5e9;color:#0f8a3d;padding:4px 10px;border-radius:8px;font-weight:900;font-size:12px;min-width:60px;text-align:center}
+.add{background:#1e170f;color:#f7d88a;border:0;padding:6px 12px;border-radius:8px;font-weight:900;cursor:pointer;font-size:11px}
+.add:active{transform:scale(.93)}
+.cart-btn{position:fixed;bottom:18px;left:12px;right:12px;max-width:880px;margin:auto;background:#1e170f;color:#fff;padding:14px 18px;border-radius:14px;display:none;justify-content:space-between;align-items:center;z-index:99;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.35)}
 .cart-btn.show{display:flex}
-.cart{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid #c8962e;max-height:92vh;overflow:auto;z-index:40;display:none;box-shadow:0 -8px 24px rgba(0,0,0,.3);border-radius:20px 20px 0 0}
-.cart.open{display:block}
-.cart-top{background:#2b1e14;color:#f7d88a;padding:12px 16px;display:flex;justify-content:space-between;font-weight:900}
-.items{padding:10px 14px;font-size:12px;max-height:140px;overflow:auto;border-bottom:1px solid #f0dca0}
-.c-item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f5f5f5}
-.total{display:flex;justify-content:space-between;padding:10px 14px;font-weight:900;background:#fff3c9}
-.types{display:flex;gap:8px;padding:12px 14px;background:#fff8ec}
-.types label{flex:1;text-align:center;padding:10px;border-radius:12px;border:2px solid #f0dca0;cursor:pointer;font-size:12px;font-weight:800}
-.types input{display:none} .types input:checked+label{background:#2b1e14;color:#f7d88a;border-color:#2b1e14}
-.box{padding:12px 14px;border-top:1px solid #f0dca0;display:none;background:#fffdf6}
-.box.active{display:block}
-.bank{background:#fff9db;border:1.5px solid #f0dca0;border-radius:10px;padding:10px;margin-top:8px;font-size:11.5px;line-height:1.7}
-.copy{background:#2b1e14;color:#f7d88a;border:0;padding:2px 7px;border-radius:5px;font-size:10px;cursor:pointer}
-.upload{margin-top:10px;border:2px dashed #c8962e;border-radius:10px;padding:12px;text-align:center;cursor:pointer}
-.pay{display:flex;gap:8px;margin-top:8px} .pay label{flex:1;padding:8px;border-radius:8px;border:1.5px solid #ddd;text-align:center;font-size:11px;cursor:pointer} .pay input{display:none} .pay input:checked+label{background:#e8f5e9;border-color:#1ea362;font-weight:900}
-.send{margin:10px 14px 16px;width:calc(100% - 28px);padding:14px;background:#1ea362;color:#fff;border:0;border-radius:12px;font-weight:900;font-size:14px;cursor:pointer}
-input.txt{width:100%;padding:10px;border-radius:8px;border:1px solid #f0dca0;margin-top:6px}
+.cart{position:fixed;inset:0;z-index:100;display:none}.cart.open{display:block}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.panel{position:absolute;bottom:0;left:0;right:0;background:#fff;border-radius:22px 22px 0 0;max-height:94vh;overflow:auto;display:flex;flex-direction:column}
+.panel-head{padding:14px 16px;background:#1e170f;color:#f7d88a;display:flex;justify-content:space-between;align-items:center;border-radius:22px 22px 0 0}
+.panel-head img{width:34px;height:34px;border-radius:50%;border:2px solid #c8962e;background:#fff}
+.body{overflow:auto;flex:1}
+.types{display:flex;gap:8px;padding:12px;background:#fff8ec}
+.types label{flex:1;text-align:center;padding:11px 6px;border:2px solid #f0dca0;border-radius:12px;cursor:pointer;font-weight:800;font-size:11.5px;background:#fff;line-height:1.3}
+.types input{display:none}.types input:checked+label{background:#1e170f;color:#f7d88a;border-color:#1e170f}
+.box{padding:14px;display:none;border-top:1px solid #f0dca0}.box.active{display:block}
+.txt{width:100%;padding:11px;border:1.5px solid #f0dca0;border-radius:10px;margin-top:7px;font-family:inherit}
+.bank{background:linear-gradient(135deg,#fff9db,#fff3c9);border:1.5px solid #f0dca0;border-radius:12px;padding:12px;font-size:11.5px;line-height:2}
+.copy{background:#1e170f;color:#f7d88a;border:0;padding:3px 9px;border-radius:6px;font-size:10px;font-weight:800;cursor:pointer;margin-right:4px}
+.up{margin-top:10px;border:2px dashed #c1272d;border-radius:12px;padding:14px;text-align:center;cursor:pointer;background:#fff8f8}
+.up.done{background:#e8f5e9;border-color:#0f8a3d;border-style:solid}
+.send{width:calc(100% - 28px);margin:14px;padding:15px;background:linear-gradient(90deg,#1ea362,#0f8a3d);color:#fff;border:0;border-radius:12px;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 6px 16px rgba(15,138,61,.3)}
+.total{display:flex;justify-content:space-between;padding:12px 16px;background:#fff3c9;font-weight:900;position:sticky;top:0;z-index:1}
 </style>
 </head>
 <body>
-<div class="top">حفظ النعمة 0555853440 | شكاوى 0593706625</div>
-<div class="hero"><b>حنيذ ومندي الجنوب الأصلي</b><div class="num">0503299444</div><small>اضف أصنافك ثم اختر نوع الطلب من السلة</small></div>
+
+<div class="top">مطعم بارق الجنوب لتقديم الوجبات | حفظ النعمة 0555853440 | شكاوى 0593706625</div>
+
+<div class="hero">
+<img src="logo.png" class="logo" onerror="this.style.display='none'">
+<div style="font-weight:900;font-size:18px;margin-top:6px">حنيذ ومندي الجنوب الأصلي من جازان</div>
+<div class="num"><a href="tel:0503299444" style="color:#c1272d;text-decoration:none">0503299444</a></div>
+<div style="font-size:10.5px;color:#8b7355;font-weight:700">فروعنا: 0530211999 - 0551340999 - 0558482999 - 0551426999</div>
+</div>
+
 <div class="wrap">
-<div class="sec"><div class="head">الطبق الرئيسي - نفر لحم 95</div>
-<div class="row"><span>نفر لحم حنيذ 843Kcal</span><span><span class="price">95</span> <button class="add" onclick="add('نفر لحم حنيذ',95)">+ اضف للسلة</button></span></div>
-<div class="row"><span>ربع تيس 398 / نصف تيس 790</span><span><span class="price">398-790</span> <button class="add" onclick="add('ربع تيس',398)">+ اضف</button></span></div>
-<div class="row"><span>نفر لحم برم / مظبي</span><span><span class="price">95</span> <button class="add" onclick="add('نفر لحم برم',95)">+ اضف</button></span></div>
+
+<!-- افطار -->
+<div class="sec">
+<div class="sec-head"><b>🍳 الإفطار الصباحي</b><img src="logo.png" onerror="this.style.display='none'"><span>من 3 ر.س</span></div>
+<div class="row"><span>سنجل ملوح <span class="kcal">174</span></span><span><span class="price">3 ر.س</span><button class="add" onclick="addItem('سنجل ملوح',3)">+ اضف</button></span></div>
+<div class="row"><span>دبل ملوح <span class="kcal">205</span> / خبز رطب <span class="kcal">175</span></span><span><span class="price">4 ر.س</span><button class="add" onclick="addItem('دبل ملوح',4)">+ اضف</button></span></div>
+<div class="row"><span>فول <span class="kcal">175</span> / عدس <span class="kcal">180</span> / قلابة / بيض عيون <span class="kcal">185</span></span><span><span class="price">10 ر.س</span><button class="add" onclick="addItem('فول',10)">+ اضف</button></span></div>
+<div class="row"><span>شكشوكة <span class="kcal">190</span> / عدني / مرسى <span class="kcal">195</span> / لحسة / بازلاء تهوة</span><span><span class="price">12 ر.س</span><button class="add" onclick="addItem('شكشوكة',12)">+ اضف</button></span></div>
+<div class="row"><span>شكشوكة جبن <span class="kcal">204</span> / قلاية تونة <span class="kcal">210</span></span><span><span class="price">13 ر.س</span><button class="add" onclick="addItem('شكشوكة جبن',13)">+ اضف</button></span></div>
+<div class="row"><span>معصوب <span class="kcal">208</span></span><span><span class="price">16 ر.س</span><button class="add" onclick="addItem('معصوب',16)">+ اضف</button></span></div>
+<div class="row"><span>تقاطيع <span class="kcal">210</span></span><span><span class="price">17 ر.س</span><button class="add" onclick="addItem('تقاطيع',17)">+ اضف</button></span></div>
+<div class="row"><span>كبدة <span class="kcal">223</span> / مقلقل <span class="kcal">240</span> / عريكة ملكية <span class="kcal">312</span></span><span><span class="price">22-26</span><button class="add" onclick="addItem('كبدة',25)">+ اضف</button></span></div>
 </div>
-<div class="sec"><div class="head">الدجاج 48 / نصف 24</div>
-<div class="row"><span>حبة دجاج شواية / حنيذ / فحم / مظبي</span><span><span class="price">48</span> <button class="add" onclick="add('حبة دجاج',48)">+ اضف</button></span></div>
-<div class="row"><span>نصف دجاج + رز 9-10</span><span><span class="price">24</span> <button class="add" onclick="add('نصف دجاج',24)">+ اضف</button></span></div>
+
+<!-- لحم -->
+<div class="sec">
+<div class="sec-head"><b>🥩 اللحم الحنيذ</b><img src="logo.png"><span>نفر 95 ر.س</span></div>
+<div class="row"><span>نفر لحم حنيذ <span class="kcal">843</span> ⭐ BEST</span><span><span class="price">95 ر.س</span><button class="add" onclick="addItem('نفر لحم حنيذ',95)">+ اضف</button></span></div>
+<div class="row"><span>نفر لحم برم <span class="kcal">832</span> / مظبي <span class="kcal">851</span></span><span><span class="price">95 ر.س</span><button class="add" onclick="addItem('نفر لحم برم',95)">+ اضف</button></span></div>
+<div class="row"><span>ربع تيس حنيذ/مندي/مظبي <span class="kcal">4230</span></span><span><span class="price">398 ر.س</span><button class="add" onclick="addItem('ربع تيس',398)">+ اضف</button></span></div>
+<div class="row"><span>ربع التيس الني <span class="kcal">3980</span></span><span><span class="price">375 ر.س</span><button class="add" onclick="addItem('ربع تيس ني',375)">+ اضف</button></span></div>
+<div class="row"><span>نصف التيس <span class="kcal">6218</span></span><span><span class="price">790 ر.س</span><button class="add" onclick="addItem('نصف تيس',790)">+ اضف</button></span></div>
+<div class="row"><span>نصف التيس الني <span class="kcal">5620</span></span><span><span class="price">705 ر.س</span><button class="add" onclick="addItem('نصف تيس ني',705)">+ اضف</button></span></div>
 </div>
-<div class="sec"><div class="head">الإفطار والمقبلات والساخن</div>
-<div class="row"><span>سنجل ملوح 3 / فول 10 / شكشوكة 12 / كبدة 25</span><span><span class="price">3-25</span> <button class="add" onclick="add('افطار مشكل',12)">+ اضف</button></span></div>
-<div class="row"><span>مقبلات 3-17 / ساخن 10 / حلى 4-11</span><span><span class="price">3-17</span> <button class="add" onclick="add('مقبلات',10)">+ اضف</button></span></div>
+
+<!-- دجاج ورز -->
+<div class="sec">
+<div class="sec-head"><b>🍗 الدجاج والرز</b><img src="logo.png"><span>حبة 48 / نصف 24</span></div>
+<div class="row"><span>حبة دجاج شواية <span class="kcal">560</span> / حنيذ <span class="kcal">570</span> / فحم / مظبي / مضغوط / مندي</span><span><span class="price">48 ر.س</span><button class="add" onclick="addItem('حبة دجاج',48)">+ اضف</button></span></div>
+<div class="row"><span>نصف دجاج جميع الأنواع <span class="kcal">540-567</span></span><span><span class="price">24 ر.س</span><button class="add" onclick="addItem('نصف دجاج',24)">+ اضف</button></span></div>
+<div class="row"><span>نفر رز حنيذ سادة <span class="kcal">465</span></span><span><span class="price">9 ر.س</span><button class="add" onclick="addItem('رز حنيذ',9)">+ اضف</button></span></div>
+<div class="row"><span>رز شعبي <span class="kcal">385</span> / بشاور <span class="kcal">295</span> / مندي <span class="kcal">328</span></span><span><span class="price">10 ر.س</span><button class="add" onclick="addItem('رز شعبي',10)">+ اضف</button></span></div>
 </div>
+
+<!-- ساخن وشعبي -->
+<div class="sec">
+<div class="sec-head"><b>🍲 الطبق الساخن والشعبي</b><img src="logo.png"><span>10-15 ر.س</span></div>
+<div class="row"><span>جريش <span class="kcal">907</span> / قرصان <span class="kcal">167</span> / مشكل فرن <span class="kcal">325</span> / مشكل خضار <span class="kcal">235</span> / ملوخية <span class="kcal">164</span> / بامية <span class="kcal">155</span> / مسقعة <span class="kcal">506</span></span><span><span class="price">10 ر.س</span><button class="add" onclick="addItem('جريش',10)">+ اضف</button></span></div>
+<div class="row"><span>عصيدة <span class="kcal">242</span> / حيسة سادة <span class="kcal">217</span></span><span><span class="price">12 ر.س</span><button class="add" onclick="addItem('عصيدة',12)">+ اضف</button></span></div>
+<div class="row"><span>سلتة <span class="kcal">249</span> / محسة <span class="kcal">244</span></span><span><span class="price">15 ر.س</span><button class="add" onclick="addItem('سلتة',15)">+ اضف</button></span></div>
+<div class="row"><span>حيسة لحم <span class="kcal">460</span> ⭐</span><span><span class="price">95 ر.س</span><button class="add" onclick="addItem('حيسة لحم',95)">+ اضف</button></span></div>
 </div>
-<div class="cart-btn" id="cartBtn" onclick="openCart()">🛒 <span id="cntBtn">0</span> أصناف - <span id="sumBtn">0 ر.س</span> - عرض السلة</div>
+
+<!-- مقبلات ومشروبات -->
+<div class="sec">
+<div class="sec-head"><b>🥗 المقبلات والمشروبات والحلى</b><img src="logo.png"><span>من 2 ر.س</span></div>
+<div class="row"><span>سلطة حارة <span class="kcal">52</span> / طحينة <span class="kcal">58</span></span><span><span class="price">3 ر.س</span><button class="add" onclick="addItem('سلطة حارة',3)">+ اضف</button></span></div>
+<div class="row"><span>حمص <span class="kcal">92</span> / سلطة خضراء <span class="kcal">83</span> / خيار باللبن <span class="kcal">94</span></span><span><span class="price">6 ر.س</span><button class="add" onclick="addItem('حمص',6)">+ اضف</button></span></div>
+<div class="row"><span>متبل <span class="kcal">85</span> / بابا غنوج <span class="kcal">63</span> / فتوش <span class="kcal">92</span> / تبولة <span class="kcal">93</span></span><span><span class="price">10 ر.س</span><button class="add" onclick="addItem('متبل',10)">+ اضف</button></span></div>
+<div class="row"><span>ملفوف / زيتون <span class="kcal">84/67</span> / مشكل مقبلات <span class="kcal">95</span></span><span><span class="price">10-17</span><button class="add" onclick="addItem('مشكل مقبلات',17)">+ اضف</button></span></div>
+<div class="row"><span>لبن قرية/مراعي/زبادي 2 / بيبسي/سفن/ميرندا 3 / أم علي/كنافة 10 / بلح الشام 11</span><span><button class="add" onclick="addItem('مشروب',3)">+ اضف</button></span></div>
+</div>
+
+</div>
+
+<!-- زر السلة -->
+<div class="cart-btn" id="cartBtn" onclick="openCart()"><span>🛒 <span id="cCount">0</span> أصناف</span><span id="cTotal">0 ر.س - عرض السلة</span></div>
+
+<!-- السلة -->
 <div class="cart" id="cart">
-<div class="cart-top"><span>🛒 سلة طلباتك</span><span style="cursor:pointer;background:#c8962e;color:#000;padding:2px 10px;border-radius:12px" onclick="closeCart()">✕</span></div>
-<div class="items" id="list"></div>
-<div class="total"><span>الإجمالي</span><span id="total">0 ر.س</span></div>
-<div style="background:#2b1e14;color:#f7d88a;padding:8px 14px;font-weight:900;font-size:12px">1️⃣ اختر نوع الطلب داخل السلة:</div>
+<div class="overlay" onclick="closeCart()"></div>
+<div class="panel">
+<div class="panel-head"><span style="display:flex;align-items:center;gap:8px"><img src="logo.png"> السلة - مطعم بارق الجنوب</span><span onclick="closeCart()" style="background:#c8962e;color:#000;padding:4px 12px;border-radius:10px;cursor:pointer">✕</span></div>
+<div class="body">
+<div class="total"><span>الإجمالي</span><span id="tot">0 ر.س</span></div>
+<div id="list" style="padding:10px 14px;font-size:12px">السلة فاضية</div>
+
+<div style="background:#1e170f;color:#f7d88a;padding:9px 14px;font-weight:900;font-size:12px">1️⃣ اختر نوع الطلب داخل السلة:</div>
 <div class="types">
-<input type="radio" name="type" id="t1" value="محلي" checked onchange="chg()"><label for="t1">🍽️ محلي</label>
-<input type="radio" name="type" id="t2" value="سفري" onchange="chg()"><label for="t2">🥡 سفري</label>
-<input type="radio" name="type" id="t3" value="توصيل" onchange="chg()"><label for="t3">🛵 توصيل</label>
+<input type="radio" name="tp" id="t1" value="محلي" checked onchange="chg()"><label for="t1">🍽️ محلي<br><small>في المطعم</small></label>
+<input type="radio" name="tp" id="t2" value="سفري" onchange="chg()"><label for="t2">🥡 سفري<br><small>تحويل</small></label>
+<input type="radio" name="tp" id="t3" value="توصيل" onchange="chg()"><label for="t3">🛵 توصيل<br><small>+15 ر.س</small></label>
 </div>
+
 <div class="box active" id="b1">
-<input class="txt" id="table" placeholder="رقم الطاولة">
-<div class="pay"><input type="radio" name="pay1" id="p1a" value="كاش" checked><label for="p1a">💵 كاش</label><input type="radio" name="pay1" id="p1b" value="شبكة"><label for="p1b">💳 شبكة</label></div>
+<input class="txt" id="tableNo" placeholder="رقم الطاولة - مثال: 5">
+<div style="display:flex;gap:8px;margin-top:8px">
+<label style="flex:1;text-align:center;padding:9px;border:1px solid #ddd;border-radius:8px;cursor:pointer"><input type="radio" name="payL" checked> 💵 كاش في المحل</label>
+<label style="flex:1;text-align:center;padding:9px;border:1px solid #ddd;border-radius:8px;cursor:pointer"><input type="radio" name="payL"> 💳 شبكة في المحل</label>
 </div>
+<div class="bank">لو بتحول: الراجحي SA7480000646608010008811 <button class="copy" onclick="copyIBAN('SA7480000646608010008811')">نسخ</button><br>الإنماء SA5305000068202831848000 <button class="copy" onclick="copyIBAN('SA5305000068202831848000')">نسخ</button></div>
+</div>
+
 <div class="box" id="b2">
-<input class="txt" id="name2" placeholder="اسم صاحب الطلب السفري">
-<div class="bank">الراجحي: SA0000000000000000000000 <button class="copy" onclick="copy('SA0000000000000000000000')">نسخ</button><br><span style="color:#c00">غيره بآيبانك</span></div>
-<div class="upload" onclick="document.getElementById('file2').click()"><div id="up2txt">📸 رفع إيصال التحويل - إجباري</div><img id="prev2" style="max-width:100%;max-height:110px;display:none;margin-top:8px"><input type="file" id="file2" accept="image/*" style="display:none" onchange="preview(this,'prev2','up2txt',2)"></div>
+<input class="txt" id="nameS" placeholder="اسم صاحب الطلب السفري">
+<div class="bank">
+<b>🏦 مطعم بارق الجنوب لتقديم الوجبات</b><br>
+<b>الراجحي:</b><br><span style="font-family:monospace;font-size:13px;letter-spacing:.5px">SA7480000646608010008811</span> <button class="copy" onclick="copyIBAN('SA7480000646608010008811')">نسخ</button><br>
+<small>Al Rajhi Bank</small><br>
+<b>الإنماء:</b><br><span style="font-family:monospace;font-size:13px">SA5305000068202831848000</span> <button class="copy" onclick="copyIBAN('SA5305000068202831848000')">نسخ</button><br>
+<small>Alinma Bank</small>
 </div>
+<div class="up" id="up2" onclick="document.getElementById('f2').click()"><div id="txt2">📸 اضغط لرفع صورة إيصال التحويل - إجباري للسفري<br><small>JPG/PNG</small></div><input type="file" id="f2" hidden accept="image/*" onchange="fileDone(2)"></div>
+</div>
+
 <div class="box" id="b3">
-<input class="txt" id="addr" placeholder="عنوان التوصيل"><input class="txt" id="phone" placeholder="رقم الجوال">
-<div class="bank">توصيل 15 ر.س + الراجحي SA0000000000000000000000 <button class="copy" onclick="copy('SA0000000000000000000000')">نسخ</button></div>
-<div class="upload" onclick="document.getElementById('file3').click()"><div id="up3txt">📸 رفع الإيصال (الطلب+15)</div><img id="prev3" style="max-width:100%;max-height:110px;display:none;margin-top:8px"><input type="file" id="file3" accept="image/*" style="display:none" onchange="preview(this,'prev3','up3txt',3)"></div>
+<input class="txt" id="addr" placeholder="عنوان التوصيل - الحي والشارع">
+<input class="txt" id="phone" placeholder="رقم الجوال - 05xxxxxxxx">
+<div class="bank"><b>الراجحي:</b> SA7480000646608010008811 <button class="copy" onclick="copyIBAN('SA7480000646608010008811')">نسخ</button><br><b>الإنماء:</b> SA5305000068202831848000 <button class="copy" onclick="copyIBAN('SA5305000068202831848000')">نسخ</button><br><small style="color:#c00">+ 15 ر.س رسوم توصيل تضاف تلقائياً</small></div>
+<div class="up" id="up3" onclick="document.getElementById('f3').click()"><div id="txt3">📸 رفع إيصال التحويل شامل التوصيل (الطلب+15)<br><small>إجباري للتوصيل</small></div><input type="file" id="f3" hidden accept="image/*" onchange="fileDone(3)"></div>
 </div>
-<button class="send" onclick="send()">📱 ارسال واتساب 0503299444</button>
+
+<button class="send" onclick="sendOrder()">📱 إرسال الطلب واتساب 0503299444</button>
+<div style="text-align:center;font-size:10px;color:#8b7355;padding-bottom:14px">بعد الإرسال أرسل صورة الإيصال في نفس محادثة الواتساب للتأكيد</div>
 </div>
+</div>
+</div>
+
 <script>
 let cart=[],ok2=false,ok3=false;
-function add(n,p){let f=cart.find(x=>x.n==n); if(f)f.q++; else cart.push({n,p,q:1}); render(); document.getElementById('cartBtn').classList.add('show');}
-function render(){let l=document.getElementById('list'); l.innerHTML=cart.map((x,i)=>`<div class="c-item"><span>${x.n} x${x.q}</span><span>${x.p*x.q} ر.س <a href="#" onclick="del(${i});return false">❌</a></span></div>`).join(''); let s=cart.reduce((a,b)=>a+b.p*b.q,0); let type=document.querySelector('input[name="type"]:checked')?.value; if(type=='توصيل'&&s>0)s+=15; document.getElementById('cntBtn').innerText=cart.reduce((a,b)=>a+b.q,0); document.getElementById('sumBtn').innerText=s+' ر.س'; document.getElementById('total').innerText=s+' ر.س';}
-function del(i){cart.splice(i,1);render(); if(cart.length==0){document.getElementById('cartBtn').classList.remove('show'); closeCart();}}
-function openCart(){document.getElementById('cart').classList.add('open')} function closeCart(){document.getElementById('cart').classList.remove('open')}
-function chg(){let v=document.querySelector('input[name="type"]:checked').value; document.getElementById('b1').className='box'+(v=='محلي'?' active':''); document.getElementById('b2').className='box'+(v=='سفري'?' active':''); document.getElementById('b3').className='box'+(v=='توصيل'?' active':''); render();}
-function copy(t){navigator.clipboard.writeText(t); alert('تم النسخ')}
-function preview(inp,imgId,txtId,num){let f=inp.files[0]; if(!f)return; let r=new FileReader(); r.onload=e=>{document.getElementById(imgId).src=e.target.result; document.getElementById(imgId).style.display='block'; document.getElementById(txtId).innerText='✅ تم رفع الإيصال'}; r.readAsDataURL(f); if(num==2)ok2=true; if(num==3)ok3=true;}
-function send(){if(cart.length==0){alert('اضف أصناف');return} let type=document.querySelector('input[name="type"]:checked').value; let pay='',extra=''; if(type=='محلي'){pay=document.querySelector('input[name="pay1"]:checked').value; extra=' طاولة: '+document.getElementById('table').value} if(type=='سفري'){if(!ok2){alert('ارفع الإيصال');return} pay='تحويل'; extra=' اسم: '+document.getElementById('name2').value} if(type=='توصيل'){if(!ok3){alert('ارفع الإيصال');return} if(!document.getElementById('addr').value){alert('اكتب العنوان');return} pay='تحويل+توصيل'; extra=' عنوان: '+document.getElementById('addr').value+' جوال: '+document.getElementById('phone').value} let txt=`طلب ${type} - ${pay} - ${extra}%0A`+cart.map(x=>`• ${x.n} x${x.q}=${x.p*x.q}`).join('%0A')+`%0A${document.getElementById('total').innerText}%0Aالايصال مرفوع`; window.open('https://wa.me/966503299444?text='+txt,'_blank')}
+function addItem(n,p){let f=cart.find(x=>x.n==n); if(f)f.q++; else cart.push({n,p,q:1}); upd(); document.getElementById('cartBtn').classList.add('show'); if(navigator.vibrate) navigator.vibrate(30);}
+function upd(){let l=document.getElementById('list'); l.innerHTML=cart.length?cart.map((x,i)=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee"><span>${x.n} <b style="color:#c1272d">x${x.q}</b></span><span>${x.p*x.q} ر.س <a href="#" onclick="delIt(${i});return false" style="color:#c00;text-decoration:none">❌</a></span></div>`).join(''):'<div style="text-align:center;padding:18px;color:#a08555">السلة فاضية - اضف أصناف</div>'; let s=cart.reduce((a,b)=>a+b.p*b.q,0); let tp=document.querySelector('input[name="tp"]:checked').value; if(tp=='توصيل'&&s>0)s+=15; document.getElementById('cCount').innerText=cart.reduce((a,b)=>a+b.q,0); document.getElementById('cTotal').innerText=s+' ر.س - عرض السلة'; document.getElementById('tot').innerText=s+' ر.س';}
+function delIt(i){cart.splice(i,1); upd(); if(cart.length==0){document.getElementById('cartBtn').classList.remove('show'); closeCart();}}
+function openCart(){document.getElementById('cart').classList.add('open'); document.body.style.overflow='hidden';}
+function closeCart(){document.getElementById('cart').classList.remove('open'); document.body.style.overflow='';}
+function chg(){let v=document.querySelector('input[name="tp"]:checked').value; document.getElementById('b1').className='box'+(v=='محلي'?' active':''); document.getElementById('b2').className='box'+(v=='سفري'?' active':''); document.getElementById('b3').className='box'+(v=='توصيل'?' active':''); upd();}
+function copyIBAN(t){navigator.clipboard.writeText(t); alert('تم نسخ الآيبان: '+t);}
+function fileDone(n){if(n==2){ok2=true; document.getElementById('up2').classList.add('done'); document.getElementById('txt2').innerHTML='✅ تم رفع الإيصال - سيتم إرساله مع الطلب';} if(n==3){ok3=true; document.getElementById('up3').classList.add('done'); document.getElementById('txt3').innerHTML='✅ تم رفع الإيصال - سيتم إرساله مع الطلب';}}
+function sendOrder(){if(cart.length==0){alert('أضف أصناف أولاً');return;} let tp=document.querySelector('input[name="tp"]:checked').value; if(tp=='سفري'&&!ok2){alert('الرجاء رفع صورة إيصال التحويل للسفري');return;} if(tp=='توصيل'&&!ok3){alert('الرجاء رفع صورة إيصال التحويل للتوصيل');return;} if(tp=='توصيل'&&!document.getElementById('addr').value){alert('اكتب عنوان التوصيل');return;} let pay=''; if(tp=='محلي')pay=document.querySelector('input[name="payL"]:checked').nextSibling?document.querySelector('input[name="payL"]:checked').parentElement.innerText:'كاش'; let ex=''; if(tp=='محلي')ex='طاولة: '+(document.getElementById('tableNo').value||'غير محدد')+' | الدفع: '+pay; if(tp=='سفري')ex='اسم: '+document.getElementById('nameS').value+' | إيصال مرفوع ✅'; if(tp=='توصيل')ex='عنوان: '+document.getElementById('addr').value+' | جوال: '+document.getElementById('phone').value+' | إيصال مرفوع ✅'; let items=cart.map(x=>`• ${x.n} x${x.q} = ${x.p*x.q} ر.س`).join('%0A'); let total=document.getElementById('tot').innerText; let msg=`طلب جديد - ${tp}%0A${ex}%0A%0A${items}%0A%0Aالإجمالي: ${total}%0A%0Aالآيبانات:%0ARajhi: SA7480000646608010008811%0AInma: SA5305000068202831848000%0A%0Aمطعم بارق الجنوب`; window.open('https://wa.me/966503299444?text='+msg,'_blank');}
 </script>
 </body>
 </html>
