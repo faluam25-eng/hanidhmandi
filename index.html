@@ -3,119 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>مدرستي - وزارة التربية والتعليم ولاية الجزيرة</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&display=swap" rel="stylesheet">
+<title>مدرستي - وزارة التربية ولاية الجزيرة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-*{font-family:'Cairo',sans-serif;box-sizing:border-box}
-body{margin:0;background:#f4f6f9;display:flex;min-height:100vh}
-.right{flex:1;background:linear-gradient(180deg,#0a8a3a 0%, #000 50%, #d10a10 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;position:relative}
-.right::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.35)}
+*{font-family:Cairo;box-sizing:border-box}
+body{margin:0;display:flex;min-height:100vh;background:#f4f6f9}
+.right{flex:1;background:linear-gradient(180deg,#0a8a3a,#000,#d10a10);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center;position:relative}
+.right::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.3)}
 .right *{position:relative;z-index:2}
-.logo{width:110px;height:110px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:50px;border:4px solid #f7c400}
 .left{flex:1;background:#fff;display:flex;justify-content:center;align-items:center;padding:20px}
 .card{width:100%;max-width:420px}
 .tabs{display:flex;background:#f1f3f6;border-radius:14px;padding:4px;margin-bottom:18px}
-.tabs button{flex:1;border:none;padding:12px;border-radius:10px;font-weight:800;background:transparent;cursor:pointer}
+.tabs button{flex:1;border:none;padding:12px;border-radius:10px;font-weight:800;cursor:pointer;color:#666}
 .tabs button.active{background:#0a8a3a;color:#fff}
 .input{width:100%;padding:14px;border:1.5px solid #e0e0e0;border-radius:12px;margin:8px 0;font-size:15px}
 .btn{width:100%;padding:14px;border:none;border-radius:12px;background:#0a8a3a;color:#fff;font-weight:800;font-size:16px;cursor:pointer;margin-top:10px}
 .btn2{background:#111}
-.otp-box{display:none;background:#fffbe6;border:1.5px dashed #f7c400;padding:14px;border-radius:12px;margin-top:12px;text-align:center}
+.otp-box{display:none;background:#fffbe6;border:2px dashed #f7c400;padding:14px;border-radius:12px;margin-top:12px;text-align:center}
 .timer{font-weight:800;color:#d10a10;font-size:18px}
-.support{margin-top:20px;background:#f8f9fa;border-radius:12px;padding:12px;text-align:center;border:1px solid #eee}
-.flag{display:flex;gap:0;width:90px;height:16px;border-radius:10px;overflow:hidden;margin:12px auto;border:1px solid rgba(255,255,255,.5)}
-.flag div{flex:1}
-.badge{display:inline-block;background:#fff;color:#0a8a3a;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:800;margin-top:8px}
-@media(max-width:700px){
-  body{flex-direction:column}
-  .left{order:1;padding:15px}
-  .right{order:2;padding:20px;min-height:300px}
-}
+.support{margin-top:20px;background:#f8fdf9;border:1px solid #d6f0dc;border-radius:12px;padding:12px;text-align:center}
+@media(max-width:700px){body{flex-direction:column}.left{order:1}.right{order:2;padding:20px}}
 </style>
 </head>
 <body>
 <div class="right">
-<div class="logo">🎓</div>
-<h1 style="margin:14px 0 4px;font-size:32px">مدرستي</h1>
-<p style="margin:0;opacity:.9">وزارة التربية والتعليم - ولاية الجزيرة</p>
-<div class="flag"><div style="background:#d10a10"></div><div style="background:#fff"></div><div style="background:#000"></div><div style="background:#0a8a3a"></div></div>
-<div class="badge">منصة إدارة المدارس الإلكترونية</div>
-<p style="margin-top:20px;font-size:13px;opacity:.8;text-align:center;line-height:1.7">نظام موحد لتسجيل المدارس ومتابعة الطلاب والمعلمين<br>ولاية الجزيرة - السودان</p>
+<div style="width:100px;height:100px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:45px;border:4px solid #f7c400">🎓</div>
+<h1>مدرستي</h1>
+<p>وزارة التربية والتعليم - ولاية الجزيرة</p>
+<div style="background:#fff;color:#0a8a3a;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:800;margin-top:8px">منصة إدارة المدارس الإلكترونية</div>
 </div>
 <div class="left">
 <div class="card">
 <div class="tabs">
-<button id="t1" class="active" onclick="tab(1)">تسجيل دخول</button>
-<button id="t2" onclick="tab(2)">تسجيل مدرسة جديدة</button>
+<button id="t2" class="active" onclick="tab(2)">تسجيل مدرسة</button>
+<button id="t1" onclick="tab(1)">دخول</button>
 </div>
-<div id="login">
-<input class="input" id="lPhone" placeholder="رقم الجوال مثال: 249912345678">
-<input class="input" id="lPass" type="password" placeholder="كلمة المرور">
-<button class="btn" onclick="login()">دخول</button>
-</div>
-<div id="register" style="display:none">
+<div id="register">
 <input class="input" id="sName" placeholder="اسم المدرسة">
-<input class="input" id="sPhone" placeholder="رقم الجوال السوداني - يبدأ بـ 249">
-<input class="input" id="sEmail" type="email" placeholder="البريد الإلكتروني للمدرسة">
+<input class="input" id="sPhone" placeholder="جوال 249xxxxxxxxx">
+<input class="input" id="sEmail" placeholder="بريد المدرسة">
 <button class="btn" onclick="sendCode()">إرسال كود التأكيد</button>
 <div class="otp-box" id="otpBox">
-<p style="margin:0 0 8px">تم إرسال كود التأكيد إلى <b id="sentTo"></b></p>
-<input class="input" id="otp" placeholder="أدخل كود التأكيد (6 أرقام)" maxlength="6" style="text-align:center;letter-spacing:4px;font-weight:800">
+<input class="input" id="otp" placeholder="كود 6 أرقام" maxlength="6" style="text-align:center;letter-spacing:5px;font-weight:800">
 <div class="timer" id="timer">02:00</div>
-<p style="font-size:12px;color:#666">الكود صالح لمدة دقيقتين فقط</p>
-<button class="btn btn2" onclick="verify()">تأكيد وتسجيل المدرسة</button>
-<button style="background:none;border:none;color:#0a8a3a;font-weight:700;margin-top:8px;cursor:pointer" onclick="sendCode()">إعادة الإرسال</button>
+<button class="btn btn2" onclick="verify()">تأكيد التسجيل</button>
 </div>
 </div>
-<div class="support">
-<b>🛠️ الدعم الفني</b><br>
-<a href="https://wa.me/249914542525" style="color:#0a8a3a;font-weight:800;text-decoration:none;font-size:18px">0914542525</a><br>
-<small>وزارة التربية والتعليم - ولاية الجزيرة - تواصل واتساب مباشر</small>
+<div id="login" style="display:none">
+<input class="input" id="lPhone" placeholder="رقم الجوال 249xxxxxxxxx">
+<input class="input" id="lPass" type="password" placeholder="كلمة المرور">
+<button class="btn btn2" onclick="login()">دخول</button>
 </div>
-<p style="text-align:center;font-size:11px;color:#999;margin-top:14px">© 2026 مدرستي - ولاية الجزيرة - السودان 🇸🇩</p>
+<div class="support">🛠️ الدعم الفني<br><a href="https://wa.me/249914542525" style="color:#0a8a3a;font-weight:800;text-decoration:none;font-size:18px">0914542525</a><br><small>وزارة التربية - الجزيرة - واتساب</small></div>
+<p style="text-align:center;font-size:11px;color:#999;margin-top:10px">© 2026 مدرستي - السودان 🇸🇩</p>
 </div>
 </div>
 <script>
-let time=120,interval=null,generatedCode='';
-function tab(n){
-document.getElementById('t1').classList.toggle('active',n==1);
-document.getElementById('t2').classList.toggle('active',n==2);
-document.getElementById('login').style.display=n==1?'block':'none';
-document.getElementById('register').style.display=n==2?'block':'none';
-}
+let time=120,interval=null,code='';
+function tab(n){t1.classList.toggle('active',n==1);t2.classList.toggle('active',n==2);login.style.display=n==1?'block':'none';register.style.display=n==2?'block':'none';}
 function sendCode(){
-let name=document.getElementById('sName').value.trim();
-let phone=document.getElementById('sPhone').value.trim();
-let email=document.getElementById('sEmail').value.trim();
-if(!name||!phone||!email){alert('أكمل كل البيانات');return}
-if(!phone.startsWith('249')){alert('رقم الجوال لازم يبدأ بـ 249 مثال: 249912345678');return}
-if(phone.length<12){alert('رقم الجوال غير مكتمل');return}
-generatedCode=Math.floor(100000+Math.random()*900000).toString();
-document.getElementById('sentTo').innerText=phone;
-document.getElementById('otpBox').style.display='block';
-alert('كود التأكيد (للتجربة): '+generatedCode+'\nسيتم إرساله فعليا عبر SMS على '+phone);
-startTimer();
+ if(!sName.value||!sPhone.value||!sEmail.value){alert('أكمل البيانات');return}
+ if(!sPhone.value.startsWith('249')){alert('لازم يبدأ بـ 249');return}
+ code=Math.floor(100000+Math.random()*900000)+'';
+ otpBox.style.display='block'; alert('كود التجربة: '+code); startTimer();
 }
-function startTimer(){
-clearInterval(interval);time=120;
-interval=setInterval(()=>{
-let m=Math.floor(time/60),s=time%60;
-document.getElementById('timer').innerText=`0${m}:${s<10?'0'+s:s}`;
-if(time<=0){clearInterval(interval);document.getElementById('otpBox').style.display='none';alert('انتهت صلاحية الكود');}
-time--;
-},1000);
-}
-function verify(){
-let code=document.getElementById('otp').value.trim();
-if(code==generatedCode){
-alert('تم تسجيل المدرسة بنجاح: '+document.getElementById('sName').value);
-}else{alert('الكود خطأ')}
-}
-function login(){
-let p=document.getElementById('lPhone').value;
-if(!p.startsWith('249')){alert('رقم الجوال لازم يبدأ بـ 249');return}
-alert('تم الدخول بنجاح - هنا تفتح لوحة التحكم الداخلية');
-}
+function startTimer(){clearInterval(interval);time=120;interval=setInterval(()=>{let m=Math.floor(time/60),s=time%60;timer.innerText=`0${m}:${s<10?'0'+s:s}`;if(time--<=0){clearInterval(interval);otpBox.style.display='none'}},1000)}
+function verify(){otp.value==code?alert('تم تسجيل '+sName.value):alert('الكود خطأ')}
+function login(){!lPhone.value.startsWith('249')?alert('لازم يبدأ بـ 249'):alert('تم الدخول')}
 </script>
 </body>
 </html>
